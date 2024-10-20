@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waseem Kassem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MEP TECH ENGINEERING</h1>
+        <nav>
+            <ul>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Name: Waseem Kassem</p>
+            <p>Phone: 0544112040</p>
+            <p>Email: Eng_waseem85@hotmail.com</p>
+            <h3>Book an Appointment</h3>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" required>
+                
+                <label for="time">Appointment Time:</label>
+                <input type="time" id="time" required>
+
+                <label for="meeting">Meeting Type:</label>
+                <input type="text" id="meeting" required>
+
+                <label for="reason">Reason for Meeting:</label>
+                <textarea id="reason" rows="4" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="location">
+            <h2>Location</h2>
+            <p>Address: 39 Norley Rd, Accra, Ghana</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MEP TECH ENGINEERING</p>
+    </footer>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const dateInput = document.getElementById('date').value;
+            const selectedDate = new Date(dateInput);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const tenDaysFromNow = new Date();
+            tenDaysFromNow.setDate(today.getDate() + 10);
+
+            if (selectedDate < tenDaysFromNow) {
+                alert('Please select a date at least 10 days from today.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
